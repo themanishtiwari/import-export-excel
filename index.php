@@ -4,6 +4,11 @@
 	<head> 
 		<meta charset="utf-8">
 		<title>Import Excel To MySQL</title>
+		<style>
+			td{
+				border: 1px solid black;
+			}
+		</style>
 	</head>
 	<body>
 		<form class="" action="" method="post" enctype="multipart/form-data">
@@ -11,7 +16,7 @@
 			<button type="submit" name="import">Import</button>
 		</form>
 		<hr>
-		<table border = 1>
+		<table>
 			<tr>
 				<td>Sr</td>
 				<td>Name</td>
@@ -56,10 +61,12 @@
 
 			$reader = new SpreadsheetReader($targetDirectory);
 			foreach($reader as $key => $row){
-				$name = $row[0];
-				$age = $row[1];
-				$country = $row[2];
-				$import= mysqli_query($conn, "INSERT INTO excel VALUES('', '$name', '$age', '$country')");
+				if($key!=0){
+					$name = $row[0];
+					$age = $row[1];
+					$country = $row[2];
+					$import= mysqli_query($conn, "INSERT INTO excel VALUES('', '$name', '$age', '$country')");
+				}
 			}
 				if($import){
 
