@@ -5,12 +5,20 @@
 		<meta charset="utf-8">
 		<title>Import Excel To MySQL</title>
 		<style>
-			td{
-				border: 1px solid black;
+			body{
+				font-family: Verdana, sans-serif;
 			}
+			table, th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+				}
+				td, th{
+					padding: 5px;
+				}
 		</style>
 	</head>
 	<body>
+		<h3>Import & Export Excel</h3>
 		<form class="" action="" method="post" enctype="multipart/form-data">
 			<input type="file" name="excel" required value="">
 			<button type="submit" name="import">Import</button>
@@ -18,10 +26,10 @@
 		<hr>
 		<table>
 			<tr>
-				<td>Sr</td>
-				<td>Name</td>
-				<td>Age</td>
-				<td>Country</td>
+				<th>Sr</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Country</th>
 			</tr>
 			<?php
 			$i = 1;
