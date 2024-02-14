@@ -79,11 +79,9 @@
 				if($import){
 
 					unlink($targetDirectory);
-					echo"<script>
-						alert('Succesfully Imported');
-						</script>";
+					echo'<h4 style="color: green">Succesfully Imported </h4>';
 						
-					?><meta http-equiv="refresh" content="0" /><?php
+					?><meta http-equiv="refresh" content="2" /><?php
 				}
 			
 			}
@@ -101,6 +99,7 @@
 	}
 
 		?>
+		<br>
 		<a href="download.php"><button type="button">download</button></a>
 	</body>
 </html>
