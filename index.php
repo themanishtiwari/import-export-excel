@@ -51,7 +51,7 @@
 			$size=$_FILES['excel']['size'];
 			$fileExtension = explode('.', $fileName);
       		$fileExtension = strtolower(end($fileExtension));
-			$newFileName = date("Y.m.d") . " - " . date("h.i.sa") . "." . $fileExtension;
+			$newFileName = time() . "." . $fileExtension;
 			$array= array('csv','xlsx');
 
 
@@ -66,14 +66,15 @@
 
 			require 'excelReader/excel_reader2.php';
 			require 'excelReader/SpreadsheetReader.php';
-
 			$reader = new SpreadsheetReader($targetDirectory);
+			$i=10;
 			foreach($reader as $key => $row){
 				if($key!=0){
 					$name = $row[0];
 					$age = $row[1];
 					$country = $row[2];
-					$import= mysqli_query($conn, "INSERT INTO excel VALUES('', '$name', '$age', '$country')");
+					$query="INSERT INTO `excel`(`name`, `age`, `country`) VALUES ('$name','$age','$country')";
+					$import= mysqli_query($conn, $query);
 				}
 			}
 				if($import){
